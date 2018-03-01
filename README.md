@@ -19,3 +19,16 @@ This script displays the current days todo item in the [TaskPaper](https://www.t
 This script complements the [Alfred ToDo Workflow](https://github.com/raguay/MyAlfred/blob/master/Alfred%203/TodoWorkflow.alfredworkflow) in my [GitHub Alfred repository](https://github.com/raguay/MyAlfred)
 
 This is a port of the same script for [BitBar](https://getbitbar.com/).
+
+## Current Files and Editor
+
+This script displays a list of often edited files and editors that you use. These are in the files: ~/.myCurrentFiles (one file per line of files you want to appear in the list), ~/.myeditorchoice (The current editor you have selected to use), and ~/.myeditors (List of editors you use. Text name with a pipe symbal and then the path to the editor).
+
+I use the Alfred Workflow [My Editor Workflow](https://github.com/raguay/MyAlfred/blob/master/Alfred%203/My%20Editor%20Workflow.alfredworkflow) to edit and add things to these files.
+
+## Dir Listing
+
+This is an example of using a simple node based web server to give information to the webview in TextBar. You can browse your directories and files in the webview. It is actually very handy!
+
+This one requires you have have node.js installed on your system. The easiest way for that is by installing it with [Homebrew](http://brew.sh).
+
