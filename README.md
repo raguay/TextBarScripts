@@ -32,3 +32,6 @@ This is an example of using a simple node based web server to give information t
 
 This one requires you have have node.js installed on your system. The easiest way for that is by installing it with [Homebrew](http://brew.sh).
 
+## NotePad
+
+This is another example of using a simple node based web server to give information to the url view in TextBar. It gives you a 5 pages of notes to switch back and forth. It currently doesn't save the information. That plus other features will be coming....
