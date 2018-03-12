@@ -34,11 +34,12 @@ This one requires you have have node.js installed on your system. The easiest wa
 
 ## NotePad
 
-This is another example of using a simple node based web server to give information to the url view in TextBar. It gives you a 5 pages of notes to switch back and forth. It currently doesn't save the information. That plus other features will be coming soon.
+This is another example of using a simple node based web server to give information to the url view in TextBar. It gives you a 5 pages of notes to switch back and forth. It will save the notes to a file in your home directory called `~/.notesjson`.
+
+Many other features will be coming soon.
 
 ###Coming Features:
 
-- Automatic saving notes.
 - Running scripts on full notes or just the selection.
 
 If you have something you would like to see, just make an issue with the tag [Features] and I'll see what I can do.
