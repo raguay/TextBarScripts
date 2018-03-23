@@ -24,7 +24,13 @@ This one requires you have have node.js installed on your system. The easiest wa
 
 ## NotePad
 
-This is another example of using a simple node based web server to give information to the url view in TextBar. It gives you a 5 pages of notes to switch back and forth. It will save the notes to a file in your home directory called `~/.notesjson`.
+This is another example of using a simple node based web server to give information to the url view in TextBar. It gives you a 5 pages of notes to switch back and forth. It will save the notes to a file in your home directory called `~/.notesjson`. 
+
+It now saves scripts in the file `~/.scriptsjson`. You can select some text, press `<ctrl>-m`, select the script from the menu that pops up (the menu is scrollable to see all the scripts), and that script will be executed. If you don't select some text first, the script is applied to all the text in the current note. It currently has 24 scripts. Let me know if there is a script you really need!
+
+There is a new red button on the bottom for stopping the server. You can then restart the server by reloading the script.
+
+You have to have node.js installed on your system to run this script. The easiest way for that is by installing it with [Homebrew](http://brew.sh).
 
 More features to come. Stay tuned!
 
@@ -34,7 +40,10 @@ Currently, first time to run, you will have to select a note by one of the color
 
 ### Coming Features:
 
-- Running scripts on full notes or just the selection.
+- Editing and adding new scripts.
+- Better colors and theming.
+- Regular expressions selecting and editing of notes.
+- Storing regular expressions for future use.
 
 If you have something you would like to see, just make an issue with the tag [Features] and I'll see what I can do.
 
