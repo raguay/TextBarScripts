@@ -26,13 +26,51 @@ This one requires you have have node.js installed on your system. The easiest wa
 
 This is another example of using a simple node based web server to give information to the url view in TextBar. It gives you a 5 pages of notes to switch back and forth. It will save the notes to a file in your home directory called `~/.notesjson`. 
 
-It now saves scripts in the file `~/.scriptsjson`. You can select some text, press `<ctrl>-m`, select the script from the menu that pops up (the menu is scrollable to see all the scripts), and that script will be executed. If you don't select some text first, the script is applied to all the text in the current note. It currently has 24 scripts. Let me know if there is a script you really need!
+It now saves scripts in the file `~/.scriptsjson`. You can select some text, press `<ctrl>-m`, select the script from the menu that pops up (the menu is scrollable to see all the scripts), and that script will be executed. If you don't select some text first, the script is applied to all the text in the current note. It currently has 26 scripts. Let me know if there is a script you really need!
 
-There is a new red button on the bottom for stopping the server. You can then restart the server by reloading the script.
+If you update the version of this script, you will have to remove the `~/.scriptsjson` to see the newly added scripts. I'm working on a way to add them without this step.
+
+There is a red button on the bottom for stopping the server. You can then restart the server by reloading the script. I use this all the time in the testing of new features.
 
 You have to have node.js installed on your system to run this script. The easiest way for that is by installing it with [Homebrew](http://brew.sh).
 
 More features to come. Stay tuned!
+
+### Math Features
+
+The notepads now have scripts for processing math: the 'Basic Math' and 'Evaluate Page for Math' scripts. The 'Basic Math' script is for processing arbitrary pieces of math in a selection. The 'Evaluate Page for Math' script is for processing the entire note with a nice running result along the right. The 'Basic Math' script doesn't reset the state of the math library (ie: variable definitions and functions), but the 'Evaluate Page for Math' does each time invoked so as to not create multiple copies of function and variables.
+
+Copy the following note to a notepad:
+
+```
+# Using the ‘Evaluate Page for Math’ script
+
+Your notes can have any text you need. But when a line starts with a ‘>’, that whole line is processed for math. The line is processed and the answer pushed to the right with a ‘|’ symbol.
+
+> 6 * 95
+> x=6*8-10
+> x
+
+Text in the middle doesn’t clear out the variable or function assignments before it.
+
+> f(x)=x^2-5*x+12
+> f(60)
+> f(x)
+
+The length of the note isn’t a concern either.
+
+> f(100)
+
+> bank=34675
+> check=5067
+> balance = bank - check
+
+> sin(45)
+
+The math package used doesn’t do conversions or symbols inside of the math expressions. The math library used is [mathjs 4.0](http://mathjs.org/).
+```
+
+Then press `<ctrl>-m` and select the 'Evaluate Page for Math' script. Each line with the '>' as the front character now has the results to the right. You will notice that the text lines are not modified, but the math lines are all updated. You can change any equation and it's effects will trickle down the page.
 
 ### Known Issues
 
@@ -44,6 +82,7 @@ Currently, first time to run, you will have to select a note by one of the color
 - Better colors and theming.
 - Regular expressions selecting and editing of notes.
 - Storing regular expressions for future use.
+- Add new scripts without having to remove the script store.
 
 If you have something you would like to see, just make an issue with the tag [Features] and I'll see what I can do.
 
