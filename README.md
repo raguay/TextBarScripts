@@ -26,7 +26,7 @@ This one requires you have have node.js installed on your system. The easiest wa
 
 This is another example of using a node based web server to give information to the url view in TextBar. This is a 5 pages of notepad to switch back and forth. It currently doesn't have a history or undo feature. It will save the notes to a file in your home directory called `~/.notesjson`. 
 
-It has scripts that it keeps in the file `~/.scriptsjson`. You can select some text, press `<ctrl>-m`, select the script from the menu that pops up (the menu is scrollable to see all the scripts), and that script will be executed. If you don't select some text first, the script is applied to all the text in the current note. It currently has 27 scripts. Let me know if there is a script you really need!
+It has scripts that it keeps in the file `~/.scriptsjson`. You can select some text, press `<ctrl>-m`, select the script from the menu that pops up (the menu is scrollable to see all the scripts. It also has a search box to narrow down the selections. You can then use up and down arrows to select one.), and that script will be executed. If you don't select some text first, the script is applied to all the text in the current note. It currently has 27 scripts. Let me know if there is a script you really need!
 
 If you update the version of this script, you will have to remove the `~/.scriptsjson` to see the newly added scripts. I'm working on a way to add them without this step.
 
@@ -76,16 +76,19 @@ Then press `<ctrl>-m` and select the 'Evaluate Page for Math' script. Each line 
 
 Currently, first time to run, you will have to select a note by one of the colored dots at the bottom. The first note isn't selected properly with TextBar, but works fine in a full browser.
 
+Also, if you change notes and press undo, `<cmd>-z`, you will get the last notes in the current notes.
+
 ### Coming Features (Not in any particular order):
 
 - Editing and adding new scripts.
 - Searching for and selecting scripts work nicer with less keyboard work.
-- Better colors and theming.
+- Better colors and theming (partially done).
 - Regular expressions selecting and editing of notes.
 - Storing regular expressions for future use.
 - Add new scripts without having to remove the script store.
 - Make a PopClip, Alfred, LaunchBar, and Dropzone 3 scripts for adding to the notes.
 - Fix the XML errors when saving notes to the server.
+- Undoing after changing notes puts all the notes from the last note into the current note. Need to clear out the undo buffer when changing notes.
 
 If you have something you would like to see, just make an issue with the tag `[Features][NotePad]` in the subject and I'll see what I can do.
 
@@ -97,3 +100,6 @@ If you have something you would like to see, just make an issue with the tag `[F
 - Scripts that work on the whole note or just the selection.
 - Pop-up menu of available scripts.
 - A button (red) to stop the node.js server.
+- Full text editor support with color highlighting (markdown) and my own theme.
+- Re-factored to use the [CodeMirror](https://codemirror.net) editor instead of a plain textarea.
+- The script menu now has a focused input to narrow down the list with text given. Then you can use the up and down arrow keys to select the script you want to use.
