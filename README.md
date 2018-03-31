@@ -1,6 +1,6 @@
 # TextBar Scripts
 
-This is my personal collection of scripts for use with [TextBar](http://richsomerfield.com/apps/textbar/). **TextBar** is a great application for putting small scripts with useful information at your finger tips in the menu bar. Some of these are scripts that I first made for [BitBar](https://getbitbar.com/). Others use the unique features of **BitBar**. Have fun!
+This is my personal collection of scripts for use with [TextBar](http://richsomerfield.com/apps/textbar/). **TextBar** is a great application for putting small scripts with useful information at your finger tips in the menu bar. Some of these are scripts that I first made for [BitBar](https://getbitbar.com/). Others use the unique features of **TextBar**. Have fun!
 
 ## TodoNotePlan
 
