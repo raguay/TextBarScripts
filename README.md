@@ -46,7 +46,7 @@ The notepads now have scripts for processing math: the 'Basic Math' and 'Evaluat
 
 Copy the following note to a notepad:
 
-```
+```markdown
 # Using the ‘Evaluate Page for Math’ script
 
 Your notes can have any text you need. But when a line starts with a ‘>’, that whole line is processed for math. The line is processed and the answer pushed to the right with a ‘|’ symbol.
@@ -76,16 +76,37 @@ The math package used doesn’t do conversions or symbols inside of the math exp
 
 Then press `<ctrl>-m` and select the 'Evaluate Page for Math' script. Each line with the '>' as the front character now has the results to the right. When you change the text lines and re-run the script, the math lines are all updated. All other lines are not effected by the script. You can change any equation or variable and it's effects will trickle down the page.
 
+### Making Scripts
+
+All scripts have to get the text to process from `global.text` and place the new text back into the `global.text` variable. For example, in a note, place the following code:
+
+```javascript
+try {
+   var lines = global.text.split('\n');
+  global.text = '';
+  for(var i = 0; i < lines.length ; i++) {
+      var match = lines[i].trim().match(/^\d+\. (.*)$/);
+    if (match != null)
+        global.text += match[1] + '\n';
+  }
+} catch (e) {
+   global.text += "\n\n" + e.toString()
+}
+```
+
+Then go to a different note and place several lines of text. Run the script `Bullet lines with Numbers`. Every line will have the proper number at the front of it. Now, run the script `Evaluate Note # as Script` with `#` the number of the note you put the script. The numbers at the beginning will now be removed!
+
+You can access the following libraries also: `global.moment` for [moment.js library](https://momentjs.com/), `global.mathjs` for the [math.js library](http://mathjs.org/), and `global.jQuery` for the [jQuery.js library](https://jquery.com/).
+
 ### Known Issues
 
-Currently, first time to run, you will have to select a note by one of the colored dots at the bottom. The first note isn't selected properly with TextBar, but works fine in a full browser.
+If you change notes and press undo, `<cmd>-z`, you will get the last notes in the current notes.
 
-Also, if you change notes and press undo, `<cmd>-z`, you will get the last notes in the current notes.
+When first installing the script, the server will not be able to register the port (a weird edge case with the first use of the script). If you see a white screen with a server error message, press the red button twice (first time is to select the window. Even though you have focus for typing, you don't have focus for clicking.) and then reload. You should be requested to let the server open the port or not. You only get this the first time the server launches.
 
 ### Coming Features (Not in any particular order):
 
 - Editing and adding new scripts.
-- Searching for and selecting scripts work nicer with less keyboard work.
 - Better colors and theming (partially done).
 - Regular expressions selecting and editing of notes.
 - Storing regular expressions for future use.
@@ -98,12 +119,15 @@ If you have something you would like to see, just make an issue with the tag `[F
 
 ### Features that have been added or fixed
 
+- It will now come up showing the first note without having to press the bottom button.
+- When you change notes, the text area will get input focus right away without having to click on it.
 - Cursor now is set to the end of the area changed by a script.
 - Math features have been added using the math.js library.
 - Added many time and date based scripts using moment.js library.
 - Scripts that work on the whole note or just the selection.
-- Pop-up menu of available scripts.
+- Pop-up menu of available scripts with an input for condensing the number of items by only showing script names with the letters typed in it. Then you use the up/down arrows to select one and `enter` to run the script. Or, you can scroll and click the desired one.
 - A button (red) to stop the node.js server.
 - Full text editor support with color highlighting (markdown) and my own theme.
 - Re-factored to use the [CodeMirror](https://codemirror.net) editor instead of a plain textarea.
 - The script menu now has a focused input to narrow down the list with text given. Then you can use the up and down arrow keys to select the script you want to use.
+- You can now write a script in a note, switch to another not and select some text, and run the 'Evaluate Note # as a Script' where # is 1-5. The selected text is in `global.text`. You can access the following libraries also: `global.moment` for moment.js library, `global.mathjs` for the math.js library, and `global.jQuery` for the jQuery.js library. These things can change as I work to make this a better program.
