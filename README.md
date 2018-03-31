@@ -1,3 +1,7 @@
+# TextBar Scripts
+
+This is my personal collection of scripts for use with [TextBar](http://richsomerfield.com/apps/textbar/). **TextBar** is a great application for putting small scripts with useful information at your finger tips in the menu bar. Some of these are scripts that I first made for [BitBar](https://getbitbar.com/). Others use the unique features of **BitBar**. Have fun!
+
 ## TodoNotePlan
 
 This is a port of my [BitBar](https://getbitbar.com/) script by the same name. It will display the current days todo items from [NotePlan](https://noteplan.co/). It works with my [Alfred NotePlan Workflow](https://github.com/raguay/MyAlfred/blob/master/Alfred%203/NotePlanWorkflow.alfredworkflow).
