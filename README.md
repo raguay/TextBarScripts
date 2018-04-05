@@ -78,25 +78,25 @@ Then press `<ctrl>-m` and select the 'Evaluate Page for Math' script. Each line 
 
 ### Making Scripts
 
-All scripts have to get the text to process from `global.text` and place the new text back into the `global.text` variable. For example, in a note, place the following code:
+All scripts have to get the text to process from `global.NP.text` and place the new text back into the `global.NP.text` variable. For example, in a note, place the following code:
 
 ```javascript
 try {
-   var lines = global.text.split('\n');
-  global.text = '';
+   var lines = global.NP.text.split('\n');
+  global.NP.text = '';
   for(var i = 0; i < lines.length ; i++) {
       var match = lines[i].trim().match(/^\d+\. (.*)$/);
     if (match != null)
-        global.text += match[1] + '\n';
+        global.NP.text += match[1] + '\n';
   }
 } catch (e) {
-   global.text += "\n\n" + e.toString()
+   global.NP.text += "\n\n" + e.toString()
 }
 ```
 
 Then go to a different note and place several lines of text. Run the script `Bullet lines with Numbers`. Every line will have the proper number at the front of it. Now, run the script `Evaluate Note # as Script` with `#` the number of the note you put the script. The numbers at the beginning will now be removed!
 
-You can access the following libraries also: `global.moment` for [moment.js library](https://momentjs.com/), `global.mathjs` for the [math.js library](http://mathjs.org/), and `global.jQuery` for the [jQuery.js library](https://jquery.com/).
+You can access the following libraries also: `global.NP.moment` for [moment.js library](https://momentjs.com/), `global.NP.mathjs` for the [math.js library](http://mathjs.org/), and `global.NP.jQuery` for the [jQuery.js library](https://jquery.com/).
 
 ### Known Issues
 
@@ -130,4 +130,4 @@ If you have something you would like to see, just make an issue with the tag `[F
 - Full text editor support with color highlighting (markdown) and my own theme.
 - Re-factored to use the [CodeMirror](https://codemirror.net) editor instead of a plain textarea.
 - The script menu now has a focused input to narrow down the list with text given. Then you can use the up and down arrow keys to select the script you want to use.
-- You can now write a script in a note, switch to another not and select some text, and run the 'Evaluate Note # as a Script' where # is 1-5. The selected text is in `global.text`. You can access the following libraries also: `global.moment` for moment.js library, `global.mathjs` for the math.js library, and `global.jQuery` for the jQuery.js library. These things can change as I work to make this a better program.
+- You can now write a script in a note, switch to another not and select some text, and run the 'Evaluate Note # as a Script' where # is 1-5. The selected text is in `global.NP.text`. You can access the following libraries also: `global.NP.moment` for moment.js library, `global.NP.mathjs` for the math.js library, and `global.NP.jQuery` for the jQuery.js library. These things can change as I work to make this a better program.
