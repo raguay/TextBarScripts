@@ -28,13 +28,11 @@ This one requires you have have node.js installed on your system. The easiest wa
 
 ## NotePad
 
-This is another example of using a node based web server to give information to the url view in TextBar. This is a 5 pages of notepad to switch back and forth. It currently doesn't have a history or undo feature. It will save the notes to a file in your home directory called `~/.notesjson`. 
+This is another example of using a node based web server to give information to the url view in TextBar. This is a 9 pages of a notepad to switch back and forth. It will save the notes to a file in your home directory called `~/.notepad/.notesjson`. 
 
-It has scripts that it keeps in the file `~/.scriptsjson`. You can select some text, press `<ctrl>-m`, select the script from the menu that pops up (the menu is scrollable to see all the scripts. It also has a search box to narrow down the selections. You can then use up and down arrows to select one.), and that script will be executed. If you don't select some text first, the script is applied to all the text in the current note. It currently has 27 scripts. Let me know if there is a script you really need!
+It has built-in scripts and user defined scripts that are kept in the file `~/.notepad/.scriptsjson`. You can select some text, press `<meta>-m`, select the script from the menu that pops up (the menu is scrollable to see all the scripts. It also has a search box to narrow down the selections. You can then use up and down arrows to select one.), and that script will be executed. If you don't select some text first, the script is applied to all the text in the current note. If the `insert` flag is set, it will insert the text to the cursor location. It currently has 36 scripts. Let me know if there is a script you really need!
 
-If you update the version of this script, you will have to remove the `~/.scriptsjson` to see the newly added scripts. I'm working on a way to add them without this step.
-
-There is a red button on the bottom for stopping the server. You can then restart the server by reloading the script. I use this all the time in the testing of new features.
+It also has a built-in Script Editor that you can use to create your own scripts. Press `<meta>-e` and you will be given the Script Editor. Press it again, and you will be back to the notes. You save the script by pressing the `Save` button or by pressing `<meta>-s`. Saving puts you back in the notes page. You can re-edit an existing user script by pressing `<meta>-m` (yes, I'm reusing the exact same code for the script menu in the notes page). Pressing `Delete` or `<ctrl>-x` will delete the script and give you a blank script. See the section below for details on making scripts.
 
 You have to have node.js installed on your system to run this script. The easiest way for that is by installing it with [Homebrew](http://brew.sh).
 
@@ -106,11 +104,9 @@ When first installing the script, the server will not be able to register the po
 
 ### Coming Features (Not in any particular order):
 
-- Editing and adding new scripts.
 - Better colors and theming (partially done).
 - Regular expressions selecting and editing of notes.
 - Storing regular expressions for future use.
-- Add new scripts without having to remove the script store.
 - Make a PopClip, Alfred, LaunchBar, and Dropzone 3 scripts for adding to the notes.
 - Fix the XML errors when saving notes to the server.
 - Undoing after changing notes puts all the notes from the last note into the current note. Need to clear out the undo buffer when changing notes.
@@ -119,6 +115,8 @@ If you have something you would like to see, just make an issue with the tag `[F
 
 ### Features that have been added or fixed
 
+- Editing and adding new scripts.
+- Add new scripts without having to remove the script store.
 - It will now come up showing the first note without having to press the bottom button.
 - When you change notes, the text area will get input focus right away without having to click on it.
 - Cursor now is set to the end of the area changed by a script.
