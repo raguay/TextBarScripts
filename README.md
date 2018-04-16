@@ -28,11 +28,13 @@ This one requires you have have node.js installed on your system. The easiest wa
 
 ## NotePad
 
-This is another example of using a node based web server to give information to the url view in TextBar. This is a 9 pages of a notepad to switch back and forth. It will save the notes to a file in your home directory called `~/.notepad/.notesjson`. 
+This is another example of using a node based web server to give information to the url view in TextBar. This notepad application gives you 9 pages to switch back and forth for various notes. It will save the notes to a file in your home directory called `~/.notepad/.notesjson`. 
 
 It has built-in scripts and user defined scripts that are kept in the file `~/.notepad/.scriptsjson`. You can select some text, press `<meta>-m`, select the script from the menu that pops up (the menu is scrollable to see all the scripts. It also has a search box to narrow down the selections. You can then use up and down arrows to select one.), and that script will be executed. If you don't select some text first, the script is applied to all the text in the current note. If the `insert` flag is set, it will insert the text to the cursor location. It currently has 36 scripts. Let me know if there is a script you really need!
 
 It also has a built-in Script Editor that you can use to create your own scripts. Press `<meta>-e` and you will be given the Script Editor. Press it again, and you will be back to the notes. You save the script by pressing the `Save` button or by pressing `<meta>-s`. Saving puts you back in the notes page. You can re-edit an existing user script by pressing `<meta>-m` (yes, I'm reusing the exact same code for the script menu in the notes page). Pressing `Delete` or `<ctrl>-x` will delete the script and give you a blank script. See the section below for details on making scripts.
+
+It now has a Regular Expression editor that will show you the results of your regular expressions, color code the sub-matches (embedded sub-matches are not supported). You can save your regular expressions and recall them by name given. You invoke the regular expression editor with `<meta>-r`. You can list the defined regular expressions with `<meta>-m`. The editor will allow you to save the regular expressions with the `Save` button and perform all the substitutions with the `Change All` button. Pressing `<meta>-r` will take you back out of the regular expressions editor. The regular expressions saved will be stored in the `~/.notepad/.regexpjson` file.
 
 You have to have node.js installed on your system to run this script. The easiest way for that is by installing it with [Homebrew](http://brew.sh).
 
@@ -100,13 +102,11 @@ You can access the following libraries also: `global.NP.moment` for [moment.js l
 
 If you change notes and press undo, `<cmd>-z`, you will get the last notes in the current notes.
 
-When first installing the script, the server will not be able to register the port (a weird edge case with the first use of the script). If you see a white screen with a server error message, press the red button twice (first time is to select the window. Even though you have focus for typing, you don't have focus for clicking.) and then reload. You should be requested to let the server open the port or not. You only get this the first time the server launches.
+When first installing the script, the server will not be able to register the port (a weird edge case with the first use of the script). If you see a white screen with a server error message, press `<ctrl>-s` twice and then reload. You should be requested to let the server open the port or not. You only get this the first time the server launches.
 
 ### Coming Features (Not in any particular order):
 
 - Better colors and theming (partially done).
-- Regular expressions selecting and editing of notes.
-- Storing regular expressions for future use.
 - Make a PopClip, Alfred, LaunchBar, and Dropzone 3 scripts for adding to the notes.
 - Fix the XML errors when saving notes to the server.
 - Undoing after changing notes puts all the notes from the last note into the current note. Need to clear out the undo buffer when changing notes.
@@ -115,6 +115,8 @@ If you have something you would like to see, just make an issue with the tag `[F
 
 ### Features that have been added or fixed
 
+- Storing regular expressions for future use.
+- Regular expressions selecting and editing of notes.
 - Editing and adding new scripts.
 - Add new scripts without having to remove the script store.
 - It will now come up showing the first note without having to press the bottom button.
