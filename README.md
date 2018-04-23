@@ -109,12 +109,13 @@ When first installing the script, the server will not be able to register the po
 - Better colors and theming (partially done).
 - Make a PopClip, Alfred, LaunchBar, and Dropzone 3 scripts for adding to the notes.
 - Fix the XML errors when saving notes to the server.
-- Undoing after changing notes puts all the notes from the last note into the current note. Need to clear out the undo buffer when changing notes.
 
 If you have something you would like to see, just make an issue with the tag `[Features][NotePad]` in the subject and I'll see what I can do.
 
 ### Features that have been added or fixed
 
+- Cursor is placed back to the position it was before leaving a note.
+- Fixed: Undoing after changing notes puts all the notes from the last note into the current note. Need to clear out the undo buffer when changing notes.
 - Storing regular expressions for future use.
 - Regular expressions selecting and editing of notes.
 - Editing and adding new scripts.
