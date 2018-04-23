@@ -109,6 +109,7 @@ When first installing the script, the server will not be able to register the po
 - Better colors and theming (partially done).
 - Make a PopClip, Alfred, LaunchBar, and Dropzone 3 scripts for adding to the notes.
 - Fix the XML errors when saving notes to the server.
+- Documentation for the application. Using Vuepress.
 
 If you have something you would like to see, just make an issue with the tag `[Features][NotePad]` in the subject and I'll see what I can do.
 
