@@ -36,7 +36,7 @@ It also has a built-in Script Editor that you can use to create your own scripts
 
 It now has a Regular Expression editor that will show you the results of your regular expressions, color code the sub-matches (embedded sub-matches are not supported). You can save your regular expressions and recall them by name given. You invoke the regular expression editor with `<meta>-r`. You can list the defined regular expressions with `<meta>-m`. The editor will allow you to save the regular expressions with the `Save` button and perform all the substitutions with the `Change All` button. Pressing `<meta>-r` will take you back out of the regular expressions editor. The regular expressions saved will be stored in the `~/.notepad/.regexpjson` file.
 
-You have to have node.js installed on your system to run this script. The easiest way for that is by installing it with [Homebrew](http://brew.sh).
+You have to have node.js installed on your system to run this script. The easiest way for that is by installing it with [Homebrew](http://brew.sh). The script is expecting node to be at `/usr/local/bin/node`.
 
 More features to come. Stay tuned!
 
@@ -98,26 +98,31 @@ Then go to a different note and place several lines of text. Run the script `Bul
 
 You can access the following libraries also: `NP.moment` for [moment.js library](https://momentjs.com/), `NP.mathjs` for the [math.js library](http://mathjs.org/), and `NP.jQuery` for the [jQuery.js library](https://jquery.com/).
 
-### Known Issues
-
-If you change notes and press undo, `<cmd>-z`, you will get the last notes in the current notes.
-
-When first installing the script, the server will not be able to register the port (a weird edge case with the first use of the script). If you see a white screen with a server error message, press `<ctrl>-s` twice and then reload. You should be requested to let the server open the port or not. You only get this the first time the server launches.
-
-### Coming Features (Not in any particular order):
+### Coming Features and Fixes (Not in any particular order):
 
 - Better colors and theming (partially done).
-- Make a PopClip, Alfred, LaunchBar, and Dropzone 3 scripts for adding to the notes.
-- Fix the XML errors when saving notes to the server.
+- Make a PopClip, Alfred, LaunchBar, and Dropzone 3 scripts for adding to the notes (halfway done).
 - Documentation for the application. Using Vuepress.
+- Allow just changing one of the items selected in the regular expressions editor to change.
+- Script launching webpage for using tablets/phones as a launch control center.
+- The script and regexp menus do not scroll when using the down/up arrows.
 
 If you have something you would like to see, just make an issue with the tag `[Features][NotePad]` in the subject and I'll see what I can do.
 
 ### Features that have been added or fixed
 
+- History is now remembered and maintained on a per note basis while running.
+- Server API for outside programs to work with notes.
+- Server to browser connection to update notes.
+- Move server to an express server with socketIO.
+- Start-up now shows the first note properly.
+- Cursor position is remembered and set back when changing notes.
+- Improved menu colors to match the current color scheme better.
+- Now the backend is a full express server that will allow more types of interaction than before.
+- Fix the XML errors when saving notes to the server.
 - Cursor is placed back to the position it was before leaving a note.
 - Fixed: Undoing after changing notes puts all the notes from the last note into the current note. Need to clear out the undo buffer when changing notes.
-- Storing regular expressions for future use.
+- Storing regular expressions with a meaningful name for future use.
 - Regular expressions selecting and editing of notes.
 - Editing and adding new scripts.
 - Add new scripts without having to remove the script store.
@@ -128,7 +133,7 @@ If you have something you would like to see, just make an issue with the tag `[F
 - Added many time and date based scripts using moment.js library.
 - Scripts that work on the whole note or just the selection.
 - Pop-up menu of available scripts with an input for condensing the number of items by only showing script names with the letters typed in it. Then you use the up/down arrows to select one and `enter` to run the script. Or, you can scroll and click the desired one.
-- A button (red) to stop the node.js server.
+- A hotkey (ctrl-s) to stop the node.js server.
 - Full text editor support with color highlighting (markdown) and my own theme.
 - Re-factored to use the [CodeMirror](https://codemirror.net) editor instead of a plain textarea.
 - The script menu now has a focused input to narrow down the list with text given. Then you can use the up and down arrow keys to select the script you want to use.
