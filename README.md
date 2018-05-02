@@ -111,6 +111,9 @@ If you have something you would like to see, just make an issue with the tag `[F
 
 ### Features that have been added or fixed
 
+- Added security to the server. Only tcp points from the same computer can use private API. Only local sub-domain can use the public API.
+- Fixed: removed white boarder and it now doesn't try to scroll.
+- Fixed: Launcher code more consistent and less buggy.
 - History is now remembered and maintained on a per note basis while running.
 - Server API for outside programs to work with notes.
 - Server to browser connection to update notes.
