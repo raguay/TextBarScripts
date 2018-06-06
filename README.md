@@ -38,7 +38,12 @@ It now has a Regular Expression editor that will show you the results of your re
 
 You have to have node.js installed on your system to run this script. The easiest way for that is by installing it with [Homebrew](http://brew.sh). The script is expecting node to be at `/usr/local/bin/node`.
 
+There is a hamburger menu at the lower left corner that will open the main menu when clicked. This gives the option to: show the about dialog, open the preferences (still being worked on), option to open a help document in your browser, open the regular expression editor, open the script editor, and install the scripts for Alfred, LaunchBar, Keyboard Maestro, and Dropzone.
+
+There is a new, larger circle on the far right. This will open the todo list manager. It currently opens the todos for NotePlan if you have that on your system. This will eventually have the option for other todo lists, but I haven't integrated it yet.
+
 More features to come. Stay tuned!
+
 
 ### Math Features
 
