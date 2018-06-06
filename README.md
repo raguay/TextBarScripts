@@ -42,6 +42,8 @@ There is a hamburger menu at the lower left corner that will open the main menu 
 
 There is a new, larger circle on the far right. This will open the todo list manager. It currently opens the todos for NotePlan if you have that on your system. This will eventually have the option for other todo lists, but I haven't integrated it yet.
 
+Also, you can use TeaCode to expand snippets if you have it installed on your system. Just highlight the snippet and press `<ctrl><shift>e`. In a notepad, it will be expaned as a file with an extension of 'md'. In the script editor, it will be expanded as a file with the extension of 'js'.
+
 More features to come. Stay tuned!
 
 
